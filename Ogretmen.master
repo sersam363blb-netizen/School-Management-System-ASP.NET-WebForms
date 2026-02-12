@@ -1,0 +1,337 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Ogretmen.master.cs" Inherits="MasterPage" %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Sınav Not Sistemi</title>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="Dosyalar1/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Our Custom CSS -->
+    <link href="Dosyalar1/OgretmenStyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="mobile-topbar">
+        <button type="button" id="mobileMenuBtn" class="mobile-btn">
+            <i class="glyphicon glyphicon-menu-hamburger"></i>Menü
+        </button>
+
+        <ul class="mobile-menu" id="mobileMenu">
+
+            <li class="has-sub">
+                <button class="mobile-parent">
+                    <span><i class="glyphicon glyphicon-home"></i>Öğrenci</span>
+                    <i class="caret"></i>
+                </button>
+                <ul class="submenu">
+                    <li><a href="OgrenciListesi.aspx"><i class="glyphicon glyphicon-list"></i>Öğrenci Listesi</a></li>
+                    <li><a href="OgrenciEkle.aspx"><i class="glyphicon glyphicon-search"></i>Öğrenci Ekle</a></li>
+                    <li><a href="OgrenciBul.aspx"><i class="glyphicon glyphicon-compressed"></i>Öğrenci Bul</a></li>
+                </ul>
+            </li>
+
+            <li><a href="DersListesi.aspx"><i class="glyphicon glyphicon-briefcase"></i>Dersler</a></li>
+            <li class="has-sub">
+                <button class="mobile-parent">
+                    <span><i class="glyphicon glyphicon-bullhorn"></i>Duyurular</span>
+                    <i class="caret"></i>
+                </button>
+                <ul class="submenu">
+                    <li><a href="DuyuruListesi.aspx"><i class="glyphicon glyphicon-list"></i>Duyuru Listesi</a></li>
+                    <li><a href="DuyuruEkle.aspx"><i class="glyphicon glyphicon-plus"></i>Duyuru Ekle</a></li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <button class="mobile-parent">
+                    <span><i class="glyphicon glyphicon-bullhorn"></i>Mesajlar</span>
+                    <i class="caret"></i>
+                </button>
+                <ul class="submenu">
+                    <li><a href="GelenMesajlar.aspx"><i class="glyphicon glyphicon-download"></i>Gelen Mesajlar</a></li>
+                    <li><a href="GidenMesajlar.aspx"><i class="glyphicon glyphicon-upload"></i>Giden Mesajlar</a></li>
+                    <li><a href="MesajOlustur.aspx"><i class="glyphicon glyphicon-edit"></i>Mesaj</a></li>
+                </ul>
+            </li>
+
+            <li><a href="NotListesi.aspx"><i class="glyphicon glyphicon-book"></i>Notlar</a></li>
+            <li><a href="İstatistikler.aspx"><i class="glyphicon glyphicon-blackboard"></i>İstatistikler</a></li>
+            <li><a href="Grafikler.aspx"><i class="glyphicon glyphicon-dashboard"></i>Grafikler</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-edit"></i>Ayarlar</a></li>
+        </ul>
+    </div>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menüler</h3>
+                <strong>BS</strong>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <i class="glyphicon glyphicon-home"></i>Öğrenci Listesi
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li><a href="OgrenciListesi.aspx"><i class="glyphicon glyphicon-list"></i>Öğrenci Listesi</a></li>
+                        <li><a href="OgrenciEkle.aspx"><i class="glyphicon glyphicon-search"></i>Öğrenci Ekle</a></li>
+                        <li><a href="OgrenciBul.aspx"><i class="glyphicon glyphicon-compressed"></i>Öğrenci Bul</a></li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false">
+                        <i class="glyphicon glyphicon-home"></i>Mesajlar
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu3">
+                        <li><a href="GelenMesajlar.aspx"><i class="glyphicon glyphicon-download"></i>Gelen Mesajlar</a></li>
+                        <li><a href="GidenMesajlar.aspx"><i class="glyphicon glyphicon-upload"></i>Giden Mesajlar</a></li>
+                        <li><a href="MesajOlustur.aspx"><i class="glyphicon glyphicon-download"></i>Mesaj Oluştur</a></li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">
+                        <i class="glyphicon glyphicon-home"></i>Duyurular
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu2">
+                        <li><a href="DuyuruListesi.aspx"><i class="glyphicon glyphicon-list"></i>Duyuru Listesi</a></li>
+                        <li><a href="DuyuruEkle.aspx"><i class="glyphicon glyphicon-search"></i>Duyuru Ekle</a></li>
+                    </ul>
+                </li>
+                <li><a href="NotListesi.aspx"><i class="glyphicon glyphicon-book"></i>Notlar</a></li>
+                <li><a href="İstatistikler.aspx"><i class="glyphicon glyphicon-blackboard"></i>İstatistikler</a></li>
+                <li><a href="Grafikler.aspx"><i class="glyphicon glyphicon-dashboard"></i>Grafikler</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-edit"></i>Ayarlar</a></li>
+            </ul>
+        </nav>
+
+
+        <div id="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+
+
+    <script src="Dosyalar1/jquery-1.12.0.min.js"></script>
+    <script src="Dosyalar1/js-bootstrap.min.js"></script>
+
+
+ <style>
+     /* Masaüstü varsayılanları */
+     .mobile-topbar {
+         display: none;
+     }
+
+     #sidebar {
+         min-width: 250px;
+         max-width: 250px;
+         background: #7386D5;
+         color: #fff;
+         transition: all .3s;
+     }
+
+     #content {
+         width: 100%;
+         padding: 20px;
+         transition: all .3s;
+     }
+
+     /* Mobil görünüm */
+     @media (max-width: 768px) {
+         #sidebar {
+             display: none;
+         }
+         /* sidebar tamamen gizli */
+         .mobile-topbar {
+             display: block;
+             position: sticky;
+             top: 0;
+             z-index: 999;
+             background: #222;
+             color: #fff;
+             padding: 10px 12px;
+         }
+
+         .mobile-btn {
+             background: #0d6efd;
+             color: #fff;
+             border: none;
+             padding: 8px 12px;
+             border-radius: 6px;
+             font-size: 16px;
+         }
+
+         .mobile-menu {
+             list-style: none;
+             margin: 10px 0 0;
+             padding: 0;
+             display: none;
+             background: #111;
+             border-radius: 8px;
+             overflow: hidden;
+         }
+
+             .mobile-menu.open {
+                 display: block;
+             }
+
+             .mobile-menu > li > a,
+             .mobile-menu .mobile-parent {
+                 width: 100%;
+                 text-align: left;
+                 display: flex;
+                 justify-content: space-between;
+                 align-items: center;
+                 background: transparent;
+                 color: #eee;
+                 text-decoration: none;
+                 border: none;
+                 padding: 12px;
+                 font-size: 15px;
+                 border-top: 1px solid rgba(255,255,255,.08);
+             }
+
+         .mobile-parent {
+             cursor: pointer;
+         }
+
+         .caret {
+             border: solid #ccc;
+             border-width: 0 2px 2px 0;
+             display: inline-block;
+             padding: 3px;
+             transform: rotate(45deg);
+             transition: transform .2s;
+         }
+
+         .has-sub.open .caret {
+             transform: rotate(-135deg);
+         }
+
+         .submenu {
+             list-style: none;
+             margin: 0;
+             padding: 0;
+             display: none;
+             background: #0a0a0a;
+         }
+
+         .has-sub.open > .submenu {
+             display: block;
+         }
+
+         .submenu li a {
+             display: block;
+             padding: 10px 16px;
+             color: #ddd;
+             text-decoration: none;
+             border-top: 1px solid rgba(255,255,255,.06);
+             font-size: 14px;
+         }
+
+             .submenu li a:hover {
+                 background: rgba(255,255,255,.08);
+             }
+     }
+ </style>
+
+ <script>
+    $(function () {
+
+        $('#mobileMenuBtn').on('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            $('#mobileMenu').toggleClass('open');
+        });
+
+        $('#mobileMenu').on('click', function (e) {
+            e.stopPropagation();
+        });
+
+        $('#mobileMenu').on('click', '.mobile-parent', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            var parent = $(this).closest('.has-sub');
+            parent.toggleClass('open');
+        });
+
+        $(document).on('click', function () {
+            $('#mobileMenu').removeClass('open');
+            $('#mobileMenu .has-sub').removeClass('open');
+        });
+
+    });
+ </script>
+
+ <style>
+     .table-scroll {
+         width: 100%;
+         overflow-x: auto;
+         -webkit-overflow-scrolling: touch;
+     }
+
+
+     @media (max-width:750px) {
+         .table.table-wide {
+             min-width: 400px;
+         }
+
+         .table td.actions {
+             white-space: nowrap;
+         }
+
+         .table td a.btn {
+             padding: 5px 10px;
+             font-size: 15px;
+         }
+     }
+ </style>
+
+ <script>
+     (function () {
+         function makeTablesResponsive(scope) {
+             var $ = window.jQuery;
+             if (!$) return;
+             var $root = $(scope || document);
+
+
+             $root.find('#content table').each(function () {
+                 var $tbl = $(this);
+
+
+                 if ($tbl.parent().hasClass('table-scroll')) return;
+
+                 $tbl.addClass('table table-bordered table-hover table-wide');
+
+                 $tbl.wrap('<div class="table-scroll"></div>');
+             });
+         }
+
+
+         jQuery(function () { makeTablesResponsive(document); });
+
+         jQuery(window).on('load', function () { makeTablesResponsive(document); });
+
+         if (window.Sys && Sys.WebForms && Sys.WebForms.PageRequestManager) {
+             Sys.WebForms.PageRequestManager.getInstance()
+                 .add_endRequest(function () { makeTablesResponsive(document); });
+         }
+     })();
+</script>
+
+
+</body>
+
+
+</html>
+
